@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --color-primary: #1FA463;
+  --color-secondary: #F59E0B;
+  --color-accent: #D4AF37;
+  --color-beige: #F5F1EB;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-beige text-slate-900 font-sans antialiased transition-colors duration-300;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  input, textarea, select {
+    font-size: 16px !important;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .markdown-body {
+    @apply prose prose-slate max-w-none;
+    @apply font-serif text-slate-800 leading-relaxed text-[15px];
+    @apply prose-headings:font-display prose-headings:font-black prose-headings:tracking-tight prose-headings:text-slate-900;
+    @apply prose-h1:text-2xl prose-h1:mt-10 prose-h1:mb-5;
+    @apply prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4;
+    @apply prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3;
+    @apply prose-p:mb-5;
+    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline font-sans font-bold;
+    @apply prose-blockquote:border-l-4 prose-blockquote:border-primary/20 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-slate-700 prose-blockquote:my-8;
+    @apply prose-img:rounded-3xl prose-img:shadow-2xl prose-img:my-10 prose-img:mx-auto prose-img:max-w-full prose-img:h-auto;
+    @apply prose-strong:text-slate-900 prose-strong:font-bold;
+    @apply prose-table:text-sm prose-table:font-sans;
+    @apply prose-th:bg-slate-100 prose-th:p-3 prose-th:text-xs prose-th:uppercase prose-th:tracking-widest;
+    @apply prose-td:p-3 prose-td:border prose-td:border-slate-100;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.safari-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
